@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="bg-blue-800 by-10">
+    <div className="bg-blue-800 by-100">
       <div className="container mx-auto flex justify-between items-center">
         <span className="text-3xl text-white font-bold tracking-tight">
           MernHolidays.com
