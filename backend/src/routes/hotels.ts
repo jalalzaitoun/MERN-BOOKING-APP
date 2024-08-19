@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 
-import { BookingType, HotelSearchResponse } from "../shared/types";
-import { param, validationResult } from "express-validator";
+import { HotelSearchResponse } from "../shared/types";
+// import { param, validationResult } from "express-validator";
 // import Stripe from "stripe";
-import verifyToken from "../middleware/auth";
+// import verifyToken from "../middleware/auth";
 import Hotel from "../Models/hotel";
 const router = express.Router();
 router.get("/search", async (req: Request, res: Response) => {
