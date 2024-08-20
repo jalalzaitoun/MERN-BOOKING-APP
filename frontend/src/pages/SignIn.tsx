@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import * as apiClient from "../api-client";
 import { useMutation, useQueryClient } from "react-query";
 import { useAppContext } from "../contexts/AppContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export type SignInFormData = {
   email: string;
@@ -12,6 +12,7 @@ export type SignInFormData = {
 const SignIn = () => {
   const { showToast } = useAppContext();
   const navigate = useNavigate();
+  const location = useLocation();
   const queryClient = useQueryClient();
   const {
     register,
@@ -21,11 +22,12 @@ const SignIn = () => {
 
   const mutation = useMutation(apiClient.SignIn, {
     onSuccess: async () => {
-      console.log("user has been signin");
       showToast({ message: "Sign in success", type: "SUCCESS" });
       //السطر القادم من اجل عملية اعادة التحقق بعد التسجيل وفي متلها مشان تحقق من بعد الخروج من  التطبيق حتى تتغير الواجهة
       await queryClient.invalidateQueries("validateToken");
-      navigate("/");
+
+      // و اللوكيشن حطيناه جتى مثلا بعد مايعمل تسجيل دخول يرجع للصفحة الي كان فيها مثلا كان عم يتصفح تاب معينة وبدو يحجز وللحجز لازم تكون مسجل دخول فحولوا على صفحة تسجيل دخول وبعدها رح يرجع لصفحة الحجوزات
+      navigate(location.state?.from?.pathname || "/");
     },
     onError: (error: Error) => {
       showToast({ message: error.message, type: "ERROR" });

@@ -42,7 +42,7 @@ test("should show hotel detail", async ({ page }) => {
 test("should book hotel", async ({ page }) => {
   await page.goto(UI_URL);
 
-  await page.getByPlaceholder("Where are you going?").fill("Dublin");
+  await page.getByPlaceholder("Where are you going?").fill("Syria");
 
   const date = new Date();
   date.setDate(date.getDate() + 3);
@@ -51,10 +51,10 @@ test("should book hotel", async ({ page }) => {
 
   await page.getByRole("button", { name: "Search" }).click();
 
-  await page.getByText("Dublin Getaways").click();
+  await page.getByText("Aleppo citadel").click();
   await page.getByRole("button", { name: "Book now" }).click();
 
-  await expect(page.getByText("Total Cost: £357.00")).toBeVisible();
+  await expect(page.getByText("Total Cost: £250.00")).toBeVisible();
 
   const stripeFrame = page.frameLocator("iframe").first();
   await stripeFrame
