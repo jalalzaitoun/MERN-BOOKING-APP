@@ -7,7 +7,9 @@ import verifyToken from "../middleware/auth";
 import Hotel from "../Models/hotel";
 const router = express.Router();
 
-const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
+const stripe = new Stripe(
+  "sk_test_51P5UNZA3qwHQSd2TvCKeEPxbMxHm0xpm4DgzP7GLXmxlqgDmA7FGPl9NdYAJL11MxbAWKdZYAuvSPrEM1eM68gz200dJwqloDs" as string
+);
 router.get("/search", async (req: Request, res: Response) => {
   try {
     const query = constructSearchQuery(req.query);
