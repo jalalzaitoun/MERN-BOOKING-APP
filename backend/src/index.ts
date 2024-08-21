@@ -26,9 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: "http://localhost:5173",
+
   credentials: true,
   optionSuccessStatus: 200,
-  SameSite: "None",
   withCredentials: true,
   allowedHeaders: "Content-Type,Authorization",
   exposedHeaders: "Content-Range, X-Content- Range",

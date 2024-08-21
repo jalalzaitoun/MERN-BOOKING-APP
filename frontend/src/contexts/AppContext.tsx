@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 
-const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || "";
+//const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || "";
 //مهم اعادة فهم الشرح الخاس بالفكرة من دقيقة 32 بعد الساعتين  بالفيديو مهم جدا مثال عملي على الكونتكست
 
 type ToastMessage = {
@@ -19,7 +19,9 @@ type AppContext = {
 };
 
 const AppContext = React.createContext<AppContext | undefined>(undefined);
-const stripePromise = loadStripe(STRIPE_PUB_KEY);
+const stripePromise = loadStripe(
+  "pk_test_51P5UNZA3qwHQSd2TR0f4hplKGY4nqyYhP7QLyfy0HgqHcaQSxthNRwEMeFTpE8q1OGFYx5pF8cTJbBGK7IZcemN600f5hnchyz"
+);
 export const AppContextProvider = ({
   children,
 }: {
