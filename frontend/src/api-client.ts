@@ -203,10 +203,13 @@ export const createPaymentIntent = async (
     `${API_BASE_URL}/api/hotels/${hotelId}/bookings/payment-intent`,
     {
       credentials: "include",
+
       method: "POST",
       body: JSON.stringify({ numberOfNights }),
+      //origin:"*",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     }
   );
@@ -225,6 +228,7 @@ export const createRoomBooking = async (formData: BookingFormData) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       credentials: "include",
       body: JSON.stringify(formData),

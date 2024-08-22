@@ -25,11 +25,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "*", "https://stripe.com/"],
   credentials: true,
   optionSuccessStatus: 200,
   withCredentials: true,
-  allowedHeaders: "Content-Type,Authorization",
+  allowedHeaders: "Content-Type,Authorization,Accept,Origin,X-Requested-With",
   exposedHeaders: "Content-Range, X-Content- Range",
   methods: "GET, POST, PUT ,DELETE",
 };

@@ -53,7 +53,7 @@ const Booking = () => {
   if (!hotel) {
     return <></>;
   }
-
+  console.log(paymentIntentData);
   return (
     <div className="grid md:grid-cols-[1fr_2fr]">
       <BookingDetailsSummary

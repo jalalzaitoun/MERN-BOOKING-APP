@@ -60,7 +60,7 @@ test("should book hotel", async ({ page }) => {
   await stripeFrame
     .locator('[placeholder="Card number"]')
     .fill("4242424242424242");
-  await stripeFrame.locator('[placeholder="MM / YY"]').fill("04/30");
+  await stripeFrame.locator('[placeholder="MM / YY"]').fill("04/25");
   await stripeFrame.locator('[placeholder="CVC"]').fill("242");
   await stripeFrame.locator('[placeholder="ZIP"]').fill("24225");
 
